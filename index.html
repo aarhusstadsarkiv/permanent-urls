@@ -66,10 +66,12 @@
                 let randomString = Math.random().toString(36).substr(2, 7)
 
                 let url = urlElem.value.trim()
-                saveAs.innerHTML = `<h2>Opret fil</h2><div>${randomString}.html</div><h2>Gem følgende indhold</h2>`
+                let htmlName = `${randomString}.html`
+                saveAs.innerHTML = `<h2>Opret fil</h2><div>${htmlName}</div><h2>Gem følgende indhold</h2>`
 
                 template = await fetchTemplate()
                 template = template.replace("{URL}", url)
+                template += `\n<!--\n${htmlName}\n-->\n`
 
                 previewElem.innerHTML = encodeHTMLEntities(template)
                 copy.style.display = 'block'
