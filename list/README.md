@@ -10,6 +10,8 @@ Europaplads: https://stadsarkiv.aarhus.dk/byhistorie/byens-broer/europaplads/?ut
 
 https://purl.aarhusstadsarkiv.dk/3sr261g.html
 
+---
+
 Mindebroen: https://stadsarkiv.aarhus.dk/byhistorie/byens-broer/mindebroen/?utm_source=qr&utm_campaign=byens-broer
 
 https://purl.aarhusstadsarkiv.dk/ryuq7cj.html
