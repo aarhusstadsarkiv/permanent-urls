@@ -1,10 +1,12 @@
 # permanent-urls
 
-This repository has a online form (or use a node js script) to generate a file name and html file content for a permanent URL.
+This repository has a online form to generate a file name and add html file content for a permanent URL.
 
-The permanent URL will just redirect to another URL. E.g. 
+You can also use a node js script to generate the filename and the html content.
 
-Here is the code the form or the script will produce: [/home/dennis/permanent-urls/k1o0rod.html](/home/dennis/permanent-urls/k1o0rod.html)
+The permanent URL will just redirect to another URL.
+
+Here is an example of the code which is produced by the form: [k1o0rod.html](k1o0rod.html)
 
 ```html
 <!DOCTYPE html>
