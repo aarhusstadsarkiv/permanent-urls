@@ -2,9 +2,15 @@ const fs = require("fs")
 
 
 /**
+ * @param length {number}
+ * @param base {number}
  * @returns {string}
  */
-const randomName = () => Math.random().toString(36).substring(2, 7);
+const randomName = (length = 6, base= 36) => {
+  const min = length > 1 ? Math.pow(base, length - 1) : 0;
+  const max = Math.pow(base, length);
+  return Math.floor((Math.random() * (max - min)) + min).toString(base);
+}
 
 
 /**
