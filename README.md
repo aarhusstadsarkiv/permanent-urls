@@ -1,12 +1,12 @@
 # permanent-urls
 
-This repository has a online form to generate a file name and add html file content for a permanent URL.
+This repository has an online form that will generate a file name and some html content for a permanent URL.
 
-You can also use a node js script to generate the filename and the html content.
+You may also use a node js script to generate the filename and the html content.
 
 The permanent URL will just redirect to another URL.
 
-Here is an example of the code which is produced by the form: [k1o0rod.html](k1o0rod.html)
+Here is an example of the code which is produced by the form [k1o0rod.html](k1o0rod.html)
 
 ```html
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ k1o0rod.html
 -->
 ```
 
-This is then the permanent URL that redirects to another URL: 
+Visiting the permanent URL that redirects: 
 
 [https://purl.aarhusstadsarkiv.dk/k1o0rod.html](https://purl.aarhusstadsarkiv.dk/k1o0rod.html)
 
@@ -33,9 +33,9 @@ Using a html form:
 
 https://aarhusstadsarkiv.github.io/permanent-urls
 
-Enter a URL and generate a file name and generate html content (that redirects). 
+Enter a URL and generate a file name and some html content (that redirects). 
 
-Add the generated file to the repository and commit and push.
+Add the generated file to the repository and `commit` and `push`.
 
 Or easier (I think) using a node js script: 
 
@@ -43,9 +43,10 @@ Or easier (I think) using a node js script:
 
 This will generate a random file name and generate the html content (that redirects).
 
-Then commit and push.
+Then `commit` and `push`.
 
 ## Note
 
-In order to alter these URL redirect when stadsarkiv.aarhus.dk changes homepage, 
-we should alter https://stadsarkiv.aarhus.dk to the name of the new homepage.
+When stadsarkiv.aarhus.dk changes name to e.g. aarhus.dk/stadsarkiv, 
+then we should alter https://stadsarkiv.aarhus.dk to the name of the new homepage.
+
