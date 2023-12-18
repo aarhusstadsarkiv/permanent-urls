@@ -35,19 +35,17 @@ https://aarhusstadsarkiv.github.io/permanent-urls
 
 Enter a URL and generate a file name and generate html content (that redirects). 
 
-Add this to the repository and commit and push.
+Add the generated file to the repository and commit and push.
 
 Or easier (I think) using a node js script: 
 
-    node generate.js  https://somesite.com/somepage.html
+    node generate.js https://somesite.com/somepage.html
 
-This will generate a file name and generate html content (that redirects).
+This will generate a random file name and generate the html content (that redirects).
 
 Then commit and push.
 
 ## Note
 
-In order to alter these redirecting pages when stadsarkiv.aarhus.dk changes homepage we will be able to 
-alter https://stadsarkiv.aarhus.dk to the new homepage.
-
-
+In order to alter these URL redirect when stadsarkiv.aarhus.dk changes homepage, 
+we should alter https://stadsarkiv.aarhus.dk to the name of the new homepage.
