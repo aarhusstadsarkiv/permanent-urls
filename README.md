@@ -53,3 +53,7 @@ then we should alter https://stadsarkiv.aarhus.dk to the name of the new homepag
 ## Existing list
 
 See [list/README.md](list/README.md) for a list of existing permanent URLs.
+
+Regenerate the list with the following command:
+
+    node bin/generate-list.js
