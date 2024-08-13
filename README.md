@@ -24,7 +24,7 @@ Your new permanent URL will be available at the following address:
 
 E.g.:
 
-    https://purl.aarhusstadsarkiv.dk/0taceun.html
+https://purl.aarhusstadsarkiv.dk/0taceun.html
 
 ## Random
 
