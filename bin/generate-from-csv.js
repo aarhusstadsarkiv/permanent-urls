@@ -11,6 +11,10 @@ function generateHtml(file, url) {
         <script>window.location.href = "${url}";</script>
         <meta name="robots" content="noindex, nofollow">
     </head>
+    <body>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=${url}">
+    </noscript>
 </html>`;
     fs.writeFileSync(file, htmlContent);
 }
