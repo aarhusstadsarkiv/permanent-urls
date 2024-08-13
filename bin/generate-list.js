@@ -18,7 +18,7 @@ htmlFiles.forEach(file => {
     console.log(`${file}: ${match[0]}`);
 
     const url = match[0];
-    mdStringOfLinks += `[${file}](${url})\n\n`;
+    mdStringOfLinks += `[${file}](${url}) points to ${url}\n -----\n`;
 
 });
 
