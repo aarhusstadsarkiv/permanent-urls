@@ -26,3 +26,9 @@ E.g.:
 
     https://purl.aarhusstadsarkiv.dk/0taceun.html
 
+## Random
+
+If can generate a random file name following the existing pattern by running the following command:
+
+    node bin/random.js
+
