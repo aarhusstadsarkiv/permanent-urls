@@ -1,4 +1,5 @@
 // Get a list of all files in the current directory ending with .html
+// Remove index.html and template.html from the list
 const fs = require('fs');
 const path = require('path');
 
