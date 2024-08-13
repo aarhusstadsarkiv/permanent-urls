@@ -12,9 +12,10 @@ function generateHtml(file, url) {
         <meta name="robots" content="noindex, nofollow">
     </head>
     <body>
-    <noscript>
-        <meta http-equiv="refresh" content="0;url=${url}">
-    </noscript>
+        <noscript>
+            <meta http-equiv="refresh" content="0;url=${url}">
+        </noscript>
+    </body>
 </html>`;
     fs.writeFileSync(file, htmlContent);
 }
