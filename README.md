@@ -1,59 +1,28 @@
 # permanent-urls
 
-This repository has an online form that will generate a file name and some html content for a permanent URL.
+This repository generates permanent URLs for the Aarhus City Archives.
 
-You may also use a node js script to generate the filename and the html content.
+The redirect URLs are placed in the [bin/redirects.csv](bin/redirects.csv) file.
 
-The permanent URL will just redirect to another URL.
+The `File column` is the file name and the `URL column` is the URL where the client will be redirected.
 
-Here is an example of the code which is produced by the form [k1o0rod.html](k1o0rod.html)
+You may add a new permanent URL by adding a new line to the file.
 
-```html
-<!DOCTYPE html>
-<html lang="da">
-    <head>
-        <meta charset="utf-8">
-        <script>window.location.href = "https://stadsarkiv.aarhus.dk/byhistorie/byens-broer/museumsbroen/?utm_source=qr&utm_campaign=byens-broer";</script>
-        <meta name="robots" content="noindex, nofollow">
-    </head>
-</html>
+In order to generate files for all the URLs in the list, you will need install `csv-parser`. You can do this by running the following command:
 
-<!--
-k1o0rod.html
--->
-```
+    npm install
 
-Visiting the permanent URL that redirects: 
+Generate and update existing files (from CSV) by running the following command:
 
-[https://purl.aarhusstadsarkiv.dk/k1o0rod.html](https://purl.aarhusstadsarkiv.dk/k1o0rod.html)
+    node bin/generate-files.js
 
-## Creating new permanent URLs
+And now you can `commit` and `push` the changes with the new files.
 
-Using a html form:
+Your new permanent URL will be available at the following address:
 
-https://aarhusstadsarkiv.github.io/permanent-urls
+    https://purl.aarhusstadsarkiv.dk/<file-name>.html
 
-Enter a URL and generate a file name and some html content (that redirects). 
+E.g.:
 
-Add the generated file to the repository and `commit` and `push`.
+    https://purl.aarhusstadsarkiv.dk/0taceun.html
 
-Or easier (I think) using a node js script: 
-
-    node generate.js https://somesite.com/somepage.html
-
-This will generate a random file name and generate the html content (that redirects).
-
-Then `commit` and `push`.
-
-## Note
-
-When stadsarkiv.aarhus.dk changes name to e.g. aarhus.dk/stadsarkiv, 
-then we should alter https://stadsarkiv.aarhus.dk to the name of the new homepage.
-
-## Existing list
-
-See [list/README.md](list/README.md) for a list of existing permanent URLs.
-
-Regenerate the list with the following command:
-
-    node bin/generate-list.js
