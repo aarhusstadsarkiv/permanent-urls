@@ -1,16 +1,17 @@
 # permanent-urls
 
-This repository generates permanent URLs for the Aarhus City Archives.
+This repository contains and generates permanent URLs for the Aarhus City Archives.
 
-Usage could be QR codes. The QR code could be printed on a physical object, e.g. a bridge, a building, a statue, a sign, etc. The QR code could be scanned by a mobile device, which would redirect the user to the permanent URL - and then this URL would redirect the user to the desired page.
+Usage could be QR codes. The QR code could be printed on a physical object, e.g. a bridge, a building, a statue, a sign, etc. The QR code could be scanned by a mobile device, which would take the user to the permanent URL - and then this URL would redirect the user to the real URL. This way, the real URL could be changed without having to change the QR code.
 
-It is useful because sometimes the URL of a page changes, but in the permanent URL we are able to update the URL to which the user is redirected. 
+
+    QR code -> permanent URL -> real URL
 
 ## URL generation and update
 
 The redirect URLs should be placed in the [bin/redirects.csv](bin/redirects.csv) file.
 
-The `File column` is the file name and the `URL column` is the URL where the client will be redirected.
+The `File column` is the filename of the permanent URL. The `URL column` is the URL where the client will be redirected.
 
 You may add a new permanent URL by adding a new line to this CSV file.
 
