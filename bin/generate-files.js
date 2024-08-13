@@ -21,7 +21,7 @@ function generateHtml(file, url) {
 }
 
 // Read the CSV and generate HTML files
-fs.createReadStream('list/links.csv')
+fs.createReadStream('bin/redirects.csv')
     .pipe(csv())
     .on('data', (row) => {
         const fileName = row['File'];
