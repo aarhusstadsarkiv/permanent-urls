@@ -4,7 +4,7 @@ This repository generates permanent URLs for the Aarhus City Archives.
 
 Usage could be QR codes. The QR code could be printed on a physical object, e.g. a bridge, a building, a statue, a sign, etc. The QR code could be scanned by a mobile device, which would redirect the user to the permanent URL - and then this URL would redirect the user to the desired page.
 
-It is useful because sometimes the URL of a page changes, but the permanent URL will always redirect the user to the correct page.
+It is useful because sometimes the URL of a page changes, but in the permanent URL we are able to update the URL to which the user is redirected. 
 
 ## URL generation and update
 
@@ -31,6 +31,8 @@ Your new permanent URL will be available at an address like the following:
 E.g.:
 
 https://purl.aarhusstadsarkiv.dk/0taceun.html
+
+In order to generate a QR for a permanent URL, you can use a service like [qr.io](https://qr.io/)
 
 ## Random
 
