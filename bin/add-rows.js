@@ -1,11 +1,14 @@
 // get first parameter 'url' from the command line
 // get second parameter 'num_rows' from the command line
+
 const url = process.argv[2];
 const num_rows = process.argv[3];
+const fs = require('fs');
 
 // if not parameters passed, show error message
 if (!url || !num_rows) {
     console.log('Please provide URL and number of rows.');
+    console.log('Example: node bin/add-rows.js https://example.com 10');
     process.exit(1);
 }
 
@@ -16,9 +19,6 @@ function generateRandomString() {
 
 // Add rows to the CSV file in this format
 // File,URL
-// random-string.html,url
-const fs = require('fs');
-
 const rows = [];
 for (let i = 0; i < num_rows; i++) {
     const randomString = generateRandomString();
