@@ -41,3 +41,14 @@ Generate a random file name following the existing pattern by running the follow
 
     node bin/random.js
 
+## Add multiple rows
+
+You may add rows manually to the CSV file. 
+
+But if need to add a lot of rows, you can use the following command:
+
+    node bin/add-rows.js https://example.com 20
+
+This will add 20 rows to the CSV file with the URL `https://example.com` and random file names.
+
+You can then give the file names to the person who will print the QR codes.
