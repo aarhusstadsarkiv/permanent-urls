@@ -143,6 +143,6 @@ You can then give the file names to the person who will print the QR codes.
 * [https://purl.aarhusstadsarkiv.dk/96nwhdu.html](https://purl.aarhusstadsarkiv.dk/96nwhdu.html) ->  
 [https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/la-sirene](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/la-sirene)
 * [https://purl.aarhusstadsarkiv.dk/to70i97.html](https://purl.aarhusstadsarkiv.dk/to70i97.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/bjoernen](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/bjoernen)
 <!-- End PURLs -->
 
