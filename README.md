@@ -109,39 +109,39 @@ You can then give the file names to the person who will print the QR codes.
 * [https://purl.aarhusstadsarkiv.dk/z4eq3.html](https://purl.aarhusstadsarkiv.dk/z4eq3.html) ->  
 [https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/byens-lystbaadehavn/beddinghuset/?utm_source=qr&utm_campaign=byens-lystbaadehavn](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/byens-lystbaadehavn/beddinghuset/?utm_source=qr&utm_campaign=byens-lystbaadehavn)
 * [https://purl.aarhusstadsarkiv.dk/z3ixlvx.html](https://purl.aarhusstadsarkiv.dk/z3ixlvx.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/sea-pink](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/sea-pink)
 * [https://purl.aarhusstadsarkiv.dk/5w3dnom.html](https://purl.aarhusstadsarkiv.dk/5w3dnom.html) ->  
 [https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
 * [https://purl.aarhusstadsarkiv.dk/5yrrbys.html](https://purl.aarhusstadsarkiv.dk/5yrrbys.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/peter-sabroe](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/peter-sabroe)
 * [https://purl.aarhusstadsarkiv.dk/mcue6q0.html](https://purl.aarhusstadsarkiv.dk/mcue6q0.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/aalefangeren](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/aalefangeren)
 * [https://purl.aarhusstadsarkiv.dk/4qruxw9.html](https://purl.aarhusstadsarkiv.dk/4qruxw9.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/endless-connections](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/endless-connections)
 * [https://purl.aarhusstadsarkiv.dk/t6x7ngd.html](https://purl.aarhusstadsarkiv.dk/t6x7ngd.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/sirene](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/sirene)
 * [https://purl.aarhusstadsarkiv.dk/252v1mi.html](https://purl.aarhusstadsarkiv.dk/252v1mi.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/poseidon-havets-gud](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/poseidon-havets-gud)
 * [https://purl.aarhusstadsarkiv.dk/9ujz61y.html](https://purl.aarhusstadsarkiv.dk/9ujz61y.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/soemanden-de-omkomne](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/soemanden-de-omkomne)
 * [https://purl.aarhusstadsarkiv.dk/irh9brx.html](https://purl.aarhusstadsarkiv.dk/irh9brx.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/magic-mushrooms](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/magic-mushrooms)
 * [https://purl.aarhusstadsarkiv.dk/fv48yjx.html](https://purl.aarhusstadsarkiv.dk/fv48yjx.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/the-same-for-everyone](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/the-same-for-everyone)
 * [https://purl.aarhusstadsarkiv.dk/9fzu4g9.html](https://purl.aarhusstadsarkiv.dk/9fzu4g9.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/historiske-spor](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/historiske-spor)
 * [https://purl.aarhusstadsarkiv.dk/6socgb9.html](https://purl.aarhusstadsarkiv.dk/6socgb9.html) ->  
 [https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
 * [https://purl.aarhusstadsarkiv.dk/1btee1u.html](https://purl.aarhusstadsarkiv.dk/1btee1u.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/the-garden-in-the-machine](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/the-garden-in-the-machine)
 * [https://purl.aarhusstadsarkiv.dk/bdt3b6u.html](https://purl.aarhusstadsarkiv.dk/bdt3b6u.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/uden-titel-no-title](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/uden-titel-no-title)
 * [https://purl.aarhusstadsarkiv.dk/464ahit.html](https://purl.aarhusstadsarkiv.dk/464ahit.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/enrico-mylius-dalgas](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/enrico-mylius-dalgas)
 * [https://purl.aarhusstadsarkiv.dk/wsjfk1t.html](https://purl.aarhusstadsarkiv.dk/wsjfk1t.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/ekko-monument](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/ekko-monument)
 * [https://purl.aarhusstadsarkiv.dk/96nwhdu.html](https://purl.aarhusstadsarkiv.dk/96nwhdu.html) ->  
-[https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
+[https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/la-sirene](https://stadsarkiv.aarhus.dk/byhistorie/digitale-byvandringer-og-byrumsformidling/kunstruten-havnefronten/la-sirene)
 * [https://purl.aarhusstadsarkiv.dk/to70i97.html](https://purl.aarhusstadsarkiv.dk/to70i97.html) ->  
 [https://stadsarkiv.aarhus.dk](https://stadsarkiv.aarhus.dk)
 <!-- End PURLs -->
