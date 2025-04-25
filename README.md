@@ -50,3 +50,11 @@ The following command will add `URL`s (and generate `File` names ) based on the 
 of the `bin/import.csv` file. 
 
     node bin/add-from-csv.js bin/import.csv 2
+
+## Check URLs
+
+Check all URLs by using the following command.
+
+    node bin/check-urls.js
+
+If no response or non 2xx reponse then the URL will be printed in the console.
