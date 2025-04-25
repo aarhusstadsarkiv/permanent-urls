@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
+import fs from 'fs';
+import csv from 'csv-parser';
+import path from 'path';
 
 // File paths
 const readmePath = path.join('README.md');

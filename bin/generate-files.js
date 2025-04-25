@@ -1,6 +1,5 @@
-const fs = require('fs');
-const csv = require('csv-parser');
-// const path = require('path');
+import fs from 'fs';
+import csv from 'csv-parser';
 
 // Function to generate HTML file
 function generateHtml(file, url) {

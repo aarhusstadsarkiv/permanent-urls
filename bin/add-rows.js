@@ -3,7 +3,9 @@
 
 const url = process.argv[2];
 const num_rows = process.argv[3];
-const fs = require('fs');
+
+import fs from 'fs';
+
 
 // if not parameters passed, show error message
 if (!url || !num_rows) {
@@ -26,5 +28,5 @@ for (let i = 0; i < num_rows; i++) {
     rows.push(`${fileName},${url}`);
 }
 
-fs.appendFileSync('bin/redirects.csv', '\n' + rows.join('\n') );
+fs.appendFileSync('bin/redirects.csv', '\n' + rows.join('\n'));
 console.log('Rows have been added successfully.');
