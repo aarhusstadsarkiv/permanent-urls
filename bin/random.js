@@ -1,5 +1,5 @@
-let randomString = Math.random().toString(36).substr(2, 7)
+import { generateRandomString } from './utils.js';
 
 // out random string added .html extension
-let fileName = randomString + '.html'
+let fileName = generateRandomString() + '.html'
 console.log(fileName)
