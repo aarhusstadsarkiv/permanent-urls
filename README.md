@@ -8,6 +8,8 @@ Usage could be QR codes. The QR code could be printed on a physical object, e.g.
 
 ## Installation
 
+    git clone git@github.com:aarhusstadsarkiv/permanent-urls.git
+    cd permanent-urls
     npm install
 
 ## URL generation and update
@@ -43,10 +45,8 @@ In order to generate a QR for a permanent URL, you may use a service like [qr.io
 
 ## Adding multiple line
 
-If you need to add multiple lines you may use a `.csv` file in order to add new lines. 
+If you need to add multiple lines you may use a `csv` file in order to add multiple new lines. 
 The following command will add `URL`s (and generate `File` names ) based on the column with index 2 
 of the `bin/import.csv` file. 
 
     node bin/add-from-csv.js bin/import.csv 2
-
-
