@@ -1,5 +1,6 @@
 import { existingUrls } from './utils.js';
 import { config } from './config.js';
+import { logger } from './logging.js';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -46,11 +47,11 @@ async function sendMattermostMessage(message) {
     }
 }
 
+logger.info('Checking URLs...');
 const failedUrls = await checkUrls();
 
 if (failedUrls.length > 0) {
-    // const mattermostWebhookUrl = 'https://your-mattermost-webhook-url';
-    // const subject = 'Failed URLs';
+    logger.error('URLs failed. Sending Mattermost message...');
     const message = `The following URLs failed:\n${failedUrls.join('\n')}`;
     await sendMattermostMessage(message);
 }

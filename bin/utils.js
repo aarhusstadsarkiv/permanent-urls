@@ -55,7 +55,6 @@ async function getRedirectsCsv() {
 const redirects = await getRedirectsCsv()
 
 // Get existing URLs from redirects.csv
-
 const existingUrls = redirects.map(redirect => redirect.url);
 
 // Get existing file names from redirects.csv
