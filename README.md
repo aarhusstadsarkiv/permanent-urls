@@ -43,10 +43,10 @@ https://purl.aarhusstadsarkiv.dk/0taceun.html
 
 In order to generate a QR for a permanent URL, you may use a service like [qr.io](https://qr.io/)
 
-## Adding multiple line
+## Adding multiple lines
 
-If you need to add multiple lines you may use a `csv` file in order to add multiple new lines. 
-The following command will add `URL`s (and generate `File` names ) based on the column with index 2 
+If you need to add multiple lines you may use a `csv` file. 
+The following command will add `URLs` (and generate `File` names ) based on the column with index 2 
 of the `bin/import.csv` file. 
 
     node bin/add-from-csv.js bin/import.csv 2
@@ -59,3 +59,11 @@ to the `bin/config.js` file.
 Then check all URLs by using the following command.
 
     node bin/check-urls.js
+
+Or in a cron job (which in this case will run every  hour at minute 0):
+
+    0 * * * * cd /home/user/permanent-urls && node bin/check-urls.js
+
+## Logs
+
+Logs are written to ./logs/main.log
