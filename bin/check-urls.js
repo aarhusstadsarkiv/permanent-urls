@@ -10,14 +10,12 @@ async function checkUrls() {
     for (const url of existingUrls) {
         try {
             const response = await fetch(url);
-            if (response.ok) {
-                console.log(`${url}: OK`);
-            } else {
-                console.log(`${url}: Error (${response.status})`);
+            if (!response.ok) {
+                logger.error(`URL check failed for ${url}: ${response.statusText}`);
                 failedUrls.push(url);
             }
-        } catch {
-            console.log(`${url}: Error (Network Error)`);
+        } catch (err) {
+            logger.error(`URL check threw error for ${url}: ${err.message}`);
             failedUrls.push(url);
         }
 
@@ -25,7 +23,7 @@ async function checkUrls() {
     }
 
     return failedUrls;
-};
+}
 
 async function sendMattermostMessage(message) {
     const mattermostWebhookUrl = config.mattermostWebhookUrl;
@@ -57,7 +55,7 @@ try {
         const message = `The following URLs failed:\n${failedUrls.join('\n')}`;
         await sendMattermostMessage(message);
     }
-    
+
 } catch (error) {
     logger.error(`An error occurred while checking URLs : ${error}`);
 }
