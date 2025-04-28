@@ -47,11 +47,17 @@ async function sendMattermostMessage(message) {
     }
 }
 
-logger.info('Checking URLs...');
-const failedUrls = await checkUrls();
+try {
 
-if (failedUrls.length > 0) {
-    logger.error('URLs failed. Sending Mattermost message...');
-    const message = `The following URLs failed:\n${failedUrls.join('\n')}`;
-    await sendMattermostMessage(message);
+    logger.info('Checking URLs...');
+    const failedUrls = await checkUrls();
+
+    if (failedUrls.length > 0) {
+        logger.error('URLs failed. Sending Mattermost message...');
+        const message = `The following URLs failed:\n${failedUrls.join('\n')}`;
+        await sendMattermostMessage(message);
+    }
+    
+} catch (error) {
+    logger.error(`An error occurred while checking URLs : ${error}`);
 }
