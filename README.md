@@ -53,8 +53,9 @@ of the `bin/import.csv` file.
 
 ## Check URLs
 
-Check all URLs by using the following command.
+You will need to copy `bin/config-dist.js` to `bin/config.js` and add your mattermost webhook URL
+to the `bin/config.js` file.
+
+Then check all URLs by using the following command.
 
     node bin/check-urls.js
-
-If no response or non 2xx reponse then the URL will be printed in the console.
