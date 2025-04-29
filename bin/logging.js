@@ -10,15 +10,19 @@ if (!existsSync(logsDir)) {
 
 // Create a writable stream to 'logs/main.log'
 const logStream = createWriteStream(join(logsDir, 'main.log'), { flags: 'a' });
-
-// Configure pino
-const logger = pino({
-    timestamp: pino.stdTimeFunctions.isoTime,
-    formatters: {
-        level(label) {
-            return { level: label };
+const logger = pino(
+    {
+        timestamp: pino.stdTimeFunctions.isoTime,
+        formatters: {
+            level(label) {
+                return { level: label };
+            }
         }
-    }
-}, logStream);
+    },
+    pino.multistream([
+        { stream: process.stdout },
+        { stream: logStream }
+    ])
+);
 
 export { logger };
