@@ -41,7 +41,7 @@ async function sendMattermostMessage(message) {
             throw new Error(`Failed to send message: ${response.statusText}`);
         }
     } catch (error) {
-        console.error(`Failed to send message: ${error}`);
+        logger.error(`Error sending message to Mattermost: ${error.message}`);
     }
 }
 
