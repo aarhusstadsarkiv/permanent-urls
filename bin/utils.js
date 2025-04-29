@@ -71,4 +71,4 @@ function generateRandomString() {
     return randomString;
 }
 
-export { generateRandomString, getUrlsFromCsv, existingUrls, existingFileNames };
+export { generateRandomString, getUrlsFromCsv, existingUrls, existingFileNames, redirects };
