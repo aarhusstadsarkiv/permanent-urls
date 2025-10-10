@@ -15,13 +15,13 @@ Usage could be QR codes. The QR code could be printed on a physical object, e.g.
 
 ## URL generation and update
 
-The redirect URLs should be placed in the [bin/redirects.csv](bin/redirects.csv) file.
+The redirect URLs should be placed in the [data/redirects.csv](data/redirects.csv) file.
 
 The `File` column is the filename of the permanent URL. The `URL` column is the URL where the client will be redirected.
 
-You may add a new permanent URL by adding a new line to this CSV file. Then run the following command to generate the new redirect file(s). 
+You may add a new permanent URL by adding a new line to this CSV file including the `URL` column. Then run the following command to generate the new redirect file(s) and update the `redirects.csv` file with the new `File` name(s).
 
-    ./bin/update_purls.py
+    ./scripts/update_purls.py
 
 Now you can `commit` and `push` the changes with the new and updated files.
 
@@ -39,24 +39,21 @@ In order to generate a QR for a permanent URL, you may use a service like [qr.io
 
 ## Import from CSV
 
-If you need to add multiple lines you may use a `csv` file (e.g. when importing from external sources like excel). 
-The following command will add `URLs` (and generate `File` names ) based on the column with index 2 (0 index based counting) of the `bin/import.csv` file. 
+If you need to add multiple `URLs` you may use a `csv` file (e.g. when importing from external sources like excel).
+The following command will add `URLs` based on the column with index 2 (0 index based counting) of e.g. the `data/import.csv` file. 
 
-    ./bin/import_from_csv.py bin/import.csv 2
+    ./scripts/import_from_csv.py data/import.csv 2
 
 ## Check URLs
 
-You will need to copy `bin/config-dist.js` to `bin/config.js` and add your mattermost webhook URL
-to the `bin/config.js` file.
+    cp scripts/settings_dist.py scripts/settings.py
 
+Edit the `MATTERMOST_WEBHOOK_URL` in `scripts/settings.py` to your own Mattermost webhook URL.
 Then check all URLs by using the following command.
 
-    node bin/check-urls.js
+    ./scripts/check_urls.py
 
 Or in a cron job (which in this case will run every  hour at minute 0):
 
-    0 * * * * cd /home/user/permanent-urls && node bin/check-urls.js
+    0 * * * * cd /home/user/permanent-urls && .venv/bin/python ./scripts/check_urls.py
 
-## Logs
-
-Logs are written to ./logs/main.log

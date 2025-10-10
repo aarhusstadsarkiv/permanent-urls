@@ -84,9 +84,7 @@ def check_urls(urls: List[str]) -> List[str]:
             logger.error(f"URL check threw error for {url}: {e}")
             failed.append(url)
 
-
         time.sleep(SLEEP_BETWEEN_REQUESTS_SECONDS)
-        break
 
     return failed
 
