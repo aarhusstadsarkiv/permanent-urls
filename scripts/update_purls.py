@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
 """
-Generate simple HTML redirect files from bin/redirects.csv using pandas.
+Generate/refresh simple HTML redirect files from data/redirects.csv using pandas.
 
-Behavior:
+Behavior changes (idempotent writes):
+- For each row with a URL, (re)generate the target HTML content.
+- If the file doesn't exist, create it.
+- If it exists but content differs, atomically replace it (update).
+- If it exists and content matches, leave it untouched (unchanged).
+
+Other behaviors preserved:
 - Rows without a URL are skipped (warned).
 - If 'File' is provided:
     - Ensure it ends with .html.
-    - If that file already exists on disk, skip (do not overwrite).
-    - If it does not exist, create it.
+    - Avoid duplicate filenames within the same run (warn + skip duplicates).
 - If 'File' is empty:
-    - Generate a unique random *.html name that does not exist on disk and create it.
+    - Generate a unique random *.html name that does not exist on disk
+      and is not used elsewhere in the CSV/run, then create it.
 - If any new files were generated for rows with empty 'File', the CSV is updated in place
   with those new filenames (atomic write).
 
@@ -23,9 +29,10 @@ import string
 import secrets
 from pathlib import Path
 from tempfile import NamedTemporaryFile
+from tempfile import mkstemp
+import os
 
 import pandas as pd
-
 
 CSV_PATH = Path("data/redirects.csv")
 OUTPUT_DIR = Path(".")  # change to Path("out") if you want a subfolder
@@ -56,8 +63,8 @@ def unique_random_html_name(
             return candidate
 
 
-def generate_html(file_path: Path, url: str) -> None:
-    html_content = f"""<!DOCTYPE html>
+def html_content_for(url: str) -> str:
+    return f"""<!DOCTYPE html>
 <html lang="{HTML_LANG}">
     <head>
         <meta charset="utf-8">
@@ -70,14 +77,56 @@ def generate_html(file_path: Path, url: str) -> None:
         </noscript>
     </body>
 </html>"""
+
+
+def write_if_changed(file_path: Path, content: str) -> str:
+    """
+    Atomically write `content` to `file_path` iff the file doesn't exist
+    or its contents differ. Preserve existing file mode if present;
+    otherwise default to 0o644. Returns: "created" | "updated" | "unchanged".
+    """
     file_path.parent.mkdir(parents=True, exist_ok=True)
-    file_path.write_text(html_content, encoding="utf-8")
+
+    existed = file_path.exists()
+    existing_mode = None
+
+    if existed:
+        try:
+            old = file_path.read_text(encoding="utf-8")
+            if old == content:
+                return "unchanged"
+        except Exception:
+            pass
+        try:
+            existing_mode = file_path.stat().st_mode & 0o777
+        except Exception:
+            pass
+
+    # Create a temp file in the same directory
+    fd, tmp_name = mkstemp(dir=str(file_path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="") as tmp:
+            tmp.write(content)
+            tmp.flush()
+            os.fsync(tmp.fileno())
+
+        # Preserve original perms or default to 0644
+        os.chmod(tmp_name, existing_mode if existing_mode is not None else 0o644)
+
+        # Atomic replace
+        os.replace(tmp_name, file_path)
+    finally:
+        # If replace failed, ensure temp file is removed
+        try:
+            os.unlink(tmp_name)
+        except FileNotFoundError:
+            pass
+
+    return "updated" if existed else "created"
 
 
 def atomic_overwrite_csv(df: pd.DataFrame, path: Path) -> None:
-    """
-    Atomically overwrite CSV at `path` with DataFrame `df`, preserving UTF-8 and no index.
-    """
+    """Atomically overwrite CSV at `path` with DataFrame `df`, preserving UTF-8 and no index."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with NamedTemporaryFile("w", delete=False, dir=str(path.parent), newline="") as tmp:
         tmp_path = Path(tmp.name)
@@ -106,29 +155,29 @@ def main() -> int:
     df["URL"] = df["URL"].astype(str).str.strip()
     df["File"] = df["File"].astype(str).str.strip()
 
-    # Build a set of existing filenames on disk (in OUTPUT_DIR) to avoid collisions.
-    # Only consider .html files to match our output domain.
+    # Snapshot of existing .html files on disk
     existing_on_disk = {p.name for p in OUTPUT_DIR.glob("*.html")}
 
-    # Track names used/generated in this run to prevent duplicates.
+    # Track names used in this run (after normalization), to catch duplicates in CSV
     used_in_run: set[str] = set(
         name for name in df["File"].map(ensure_html_ext) if name
     )
 
-    generated = 0
+    created = 0
+    updated = 0
+    unchanged = 0
     skipped_no_url = 0
-    skipped_exists = 0
+    skipped_duplicate_name = 0
 
-    # Track which rows were assigned a new file (so we can write them back to CSV)
+    # rows that were assigned a new filename (so we can write back to CSV)
     assigned_files: dict[int, str] = {}
+
+    seen_names: set[str] = set()
 
     for idx, row in df.iterrows():
         url = row["URL"]
         if not url:
-            print(
-                f"Skipping row without URL at index {idx}: {row.to_dict()}",
-                file=sys.stderr,
-            )
+            print(f"Skipping row without URL at index {idx}: {row.to_dict()}", file=sys.stderr)
             skipped_no_url += 1
             continue
 
@@ -136,37 +185,36 @@ def main() -> int:
         file_name = ensure_html_ext(provided_name) if provided_name else ""
 
         if file_name:
-            # Provided file name; do not overwrite if it exists.
-            file_path = OUTPUT_DIR / file_name
-            if file_path.exists():
-                print(f"Exists, skipping: {file_name}")
-                skipped_exists += 1
-                # Even if it didn't have .html before, do not rewrite CSV unless we actually generated a new file.
-                # Normalize in-memory so future rows avoid collisions.
-                used_in_run.add(file_name)
+            # detect duplicates inside the CSV for the current run
+            if file_name in seen_names:
+                print(f"Duplicate file name in CSV for index {idx}: {file_name}. Skipping this row.", file=sys.stderr)
+                skipped_duplicate_name += 1
                 continue
-            else:
-                # Ensure we don't collide with other rows in this run or other files on disk.
-                while file_name in used_in_run or file_name in existing_on_disk:
-                    file_name = unique_random_html_name(existing_on_disk, used_in_run)
-                file_path = OUTPUT_DIR / file_name
+
+            # If the provided name collides with a different file on disk,
+            # we still honor it — we'll just update that file. This preserves stable URLs.
+            file_path = OUTPUT_DIR / file_name
         else:
             # No file provided — generate a unique random one
-            file_name = unique_random_html_name(existing_on_disk, used_in_run)
+            file_name = unique_random_html_name(existing_on_disk, used_in_run | seen_names)
             file_path = OUTPUT_DIR / file_name
             assigned_files[idx] = file_name  # remember to write back to CSV
 
+        seen_names.add(file_name)
+
         try:
-            generate_html(file_path, url)
-            used_in_run.add(file_name)
-            existing_on_disk.add(file_name)
-            print(f"Created: {file_name} -> {url}")
-            generated += 1
-
-            # If a provided name was missing the .html suffix, we didn't "generate" a new random name;
-            # we simply normalized. We do NOT write that back unless it was missing entirely.
-            # Only rows in assigned_files (initially empty File) will be persisted back.
-
+            content = html_content_for(url)
+            result = write_if_changed(file_path, content)
+            if result == "created":
+                print(f"Created:   {file_name} -> {url}")
+                created += 1
+                existing_on_disk.add(file_name)
+            elif result == "updated":
+                print(f"Updated:   {file_name} -> {url}")
+                updated += 1
+            else:
+                print(f"Unchanged: {file_name} -> {url}")
+                unchanged += 1
         except Exception as e:
             print(f"Failed to write {file_name}: {e}", file=sys.stderr)
 
@@ -176,19 +224,17 @@ def main() -> int:
             df.at[idx, "File"] = new_name
         try:
             atomic_overwrite_csv(df, CSV_PATH)
-            print(
-                f"\nCSV updated with {len(assigned_files)} new file name(s): {CSV_PATH}"
-            )
+            print(f"\nCSV updated with {len(assigned_files)} new file name(s): {CSV_PATH}")
         except Exception as e:
-            print(
-                f"\nWarning: failed to update CSV with new files: {e}", file=sys.stderr
-            )
+            print(f"\nWarning: failed to update CSV with new files: {e}", file=sys.stderr)
 
     print(
         f"\nSummary:\n"
-        f"  Created files: {generated}\n"
-        f"  Skipped (no URL): {skipped_no_url}\n"
-        f"  Skipped (already exists): {skipped_exists}"
+        f"  Created files: {created}\n"
+        f"  Updated files: {updated}\n"
+        f"  Unchanged:     {unchanged}\n"
+        f"  Skipped (no URL):           {skipped_no_url}\n"
+        f"  Skipped (duplicate name):   {skipped_duplicate_name}"
     )
     return 0
 
