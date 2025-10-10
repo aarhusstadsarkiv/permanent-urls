@@ -61,3 +61,8 @@ Or in a cron job (which in this case will run every  hour at minute 0):
 
     0 * * * * cd /home/appuser/permanent-urls && .venv/bin/python ./scripts/check_urls.py
 
+The `cronjob` is running on the `service` server of Aarhus City Archives.
+Connect to the `service` server:
+
+    su appuser
+    cd ~/
