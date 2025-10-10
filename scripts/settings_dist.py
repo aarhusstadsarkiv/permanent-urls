@@ -1,0 +1,1 @@
+MATTERMOST_WEBHOOK_URL="https://chat.openaws.dk/hooks/identifier-here"
