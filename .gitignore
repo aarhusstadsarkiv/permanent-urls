@@ -1,3 +1,4 @@
 node_modules
 bin/config.js
 logs
+bin/settings.py
