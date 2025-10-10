@@ -44,6 +44,10 @@ The following command will add `URLs` based on the column with index 2 (0 index 
 
     ./scripts/import_from_csv.py data/import.csv 2
 
+Then run the following command to generate the new redirect file(s) and update the `data/redirects.csv` file with the new `File` name(s).
+
+    ./scripts/update_purls.py
+
 ## Check URLs
 
     cp scripts/settings_dist.py scripts/settings.py

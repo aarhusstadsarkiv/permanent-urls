@@ -14,10 +14,13 @@ CSV_PATH = Path("data/redirects.csv")
 REQUEST_TIMEOUT_SECONDS = 10
 SLEEP_BETWEEN_REQUESTS_SECONDS = 1
 
-# --- Logging ---
+LOG_PATH = Path("logs/main.log")
+LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler(LOG_PATH, encoding="utf-8", mode="a")],
 )
 logger = logging.getLogger("url-checker")
 
@@ -69,8 +72,9 @@ def check_urls(urls: List[str]) -> List[str]:
         }
     )
 
+    logger.info(f"Checking {len(urls)} URLs")
+
     for url in urls:
-        logger.info(f"Checking URL: {url}")
         try:
             resp = session.get(
                 url, timeout=REQUEST_TIMEOUT_SECONDS, allow_redirects=True
