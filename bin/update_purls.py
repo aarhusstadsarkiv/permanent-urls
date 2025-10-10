@@ -46,8 +46,9 @@ def ensure_html_ext(name: str) -> str:
     return name if name.lower().endswith(".html") else f"{name}.html"
 
 
-def unique_random_html_name(existing_names_on_disk: set[str],
-                            used_in_run: set[str]) -> str:
+def unique_random_html_name(
+    existing_names_on_disk: set[str], used_in_run: set[str]
+) -> str:
     """Return a unique random filename ending with .html not colliding on disk or in this run."""
     while True:
         candidate = f"{generate_random_string()}.html"
@@ -110,7 +111,9 @@ def main() -> int:
     existing_on_disk = {p.name for p in OUTPUT_DIR.glob("*.html")}
 
     # Track names used/generated in this run to prevent duplicates.
-    used_in_run: set[str] = set(name for name in df["File"].map(ensure_html_ext) if name)
+    used_in_run: set[str] = set(
+        name for name in df["File"].map(ensure_html_ext) if name
+    )
 
     generated = 0
     skipped_no_url = 0
@@ -122,7 +125,10 @@ def main() -> int:
     for idx, row in df.iterrows():
         url = row["URL"]
         if not url:
-            print(f"Skipping row without URL at index {idx}: {row.to_dict()}", file=sys.stderr)
+            print(
+                f"Skipping row without URL at index {idx}: {row.to_dict()}",
+                file=sys.stderr,
+            )
             skipped_no_url += 1
             continue
 
@@ -170,9 +176,13 @@ def main() -> int:
             df.at[idx, "File"] = new_name
         try:
             atomic_overwrite_csv(df, CSV_PATH)
-            print(f"\nCSV updated with {len(assigned_files)} new file name(s): {CSV_PATH}")
+            print(
+                f"\nCSV updated with {len(assigned_files)} new file name(s): {CSV_PATH}"
+            )
         except Exception as e:
-            print(f"\nWarning: failed to update CSV with new files: {e}", file=sys.stderr)
+            print(
+                f"\nWarning: failed to update CSV with new files: {e}", file=sys.stderr
+            )
 
     print(
         f"\nSummary:\n"
