@@ -43,9 +43,9 @@ https://purl.aarhusstadsarkiv.dk/0taceun.html
 
 In order to generate a QR for a permanent URL, you may use a service like [qr.io](https://qr.io/)
 
-## Adding multiple lines
+## Import from CSV
 
-If you need to add multiple lines you may use a `csv` file. 
+If you need to add multiple lines you may use a `csv` file (e.g. when importing from external sources like excel). 
 The following command will add `URLs` (and generate `File` names ) based on the column with index 2 
 of the `bin/import.csv` file. 
 
