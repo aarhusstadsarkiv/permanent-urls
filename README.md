@@ -19,7 +19,14 @@ The redirect URLs should be placed in the [data/redirects.csv](data/redirects.cs
 
 The `File` column is the filename of the permanent URL. The `URL` column is the URL where the client will be redirected.
 
-You may add a new permanent URL by adding a new line to this CSV file including the `URL` column. Then run the following command to generate the new redirect file(s) and update the `redirects.csv` file with the new `File` name(s).
+You may add a new permanent URL by adding a new line to this CSV file including the `URL` column. E.g.:
+
+    File,URL
+    ,https://test.com
+
+You may also just update an existing `URL` in the CSV file.
+
+Then run the following command to generate the new redirect file(s) and update the `redirects.csv` file with the new `File` name(s).
 
     ./scripts/update_purls.py
 
