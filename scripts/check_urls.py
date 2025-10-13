@@ -6,8 +6,9 @@ import sys
 import time
 from typing import List
 import requests
+import json
 
-from settings import MATTERMOST_WEBHOOK_URL
+from settings import MATTERMOST
 
 # --- Config ---
 CSV_PATH = Path("data/redirects.csv")
@@ -93,26 +94,34 @@ def check_urls(urls: List[str]) -> List[str]:
     return failed
 
 
-def send_mattermost_message(message: str) -> None:
-    """Post a simple text message to a Mattermost incoming webhook."""
-    if not MATTERMOST_WEBHOOK_URL:
-        logger.error(
-            "MATTERMOST_WEBHOOK_URL is not set; cannot send Mattermost message."
-        )
-        return
+def send_mattermost_message(message: str) -> bool:
 
     try:
+        base_url = MATTERMOST.get("base_url", "").rstrip("/")
+        token = MATTERMOST.get("token")
+        channel_id = MATTERMOST.get("channel_id")
+        payload = {"channel_id": channel_id, "message": message}
+
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }
+
+        url = f"{base_url}/api/v4/posts?set_online=false"
         resp = requests.post(
-            MATTERMOST_WEBHOOK_URL,
-            json={"text": message},
-            timeout=REQUEST_TIMEOUT_SECONDS,
+            url,
+            headers=headers,
+            data=json.dumps(payload),
+            timeout=10,
         )
-        if not resp.ok:
-            raise RuntimeError(
-                f"Failed to send message: {resp.status_code} {resp.reason}"
-            )
-    except Exception as e:
-        logger.error(f"Error sending message to Mattermost: {e}")
+        resp.raise_for_status()
+        return True
+    except requests.RequestException as e:
+        # Mirror your previous logging style but correct the message
+        logger.error(f"Failed to send Mattermost message: {e}")
+        logger.exception(e)
+        return False
 
 
 def main() -> int:
