@@ -1,6 +1,6 @@
 # permanent-urls
 
-This repository contains and generates permanent URLs for the Aarhus City Archives.
+This repository contains code that can generate permanent URLs for the Aarhus City Archives.
 
 Usage could be QR codes. The QR code could be printed on a physical object, e.g. a bridge, a building, a statue, a sign, etc. The QR code could be scanned by a mobile device, which would take the user to the permanent URL - and then this URL would redirect the user to the real URL. This way, the real URL could be changed without having to change the QR code.
 
@@ -24,9 +24,9 @@ You may add a new permanent URL by adding a new line to this CSV file including 
     File,URL
     ,https://test.com
 
-You may also just update an existing `URL` in the CSV file.
+You may also just update an existing `URL` in the CSV file (in order to alter the redirection).
 
-Then run the following command to generate the new redirect file(s) and update the `redirects.csv` file with the new `File` name(s).
+Then run the following command to generate the new redirect file(s) and update the `redirects.csv` file with the new or altered `File` name(s).
 
     ./scripts/update_purls.py
 
