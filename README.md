@@ -59,7 +59,17 @@ Then run the following command to generate the new redirect file(s) and update t
 
     cp scripts/settings_dist.py scripts/settings.py
 
-Edit the `MATTERMOST_WEBHOOK_URL` in `scripts/settings.py` to your own Mattermost webhook URL.
+Edit the following in settings.py:
+
+```python
+# Mattermost specific
+MATTERMOST = {
+    "base_url": "https://your-mattermost-instance.com",
+    "token": "your-token-here",
+    "channel_id": "your-channel-id-here",
+}
+```
+
 Then check all URLs by using the following command.
 
     ./scripts/check_urls.py
