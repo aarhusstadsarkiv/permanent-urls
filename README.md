@@ -21,7 +21,7 @@ The `File` column is the filename of the permanent URL. The `URL` column is the 
 
 You may add a new permanent URL by adding a new line to this CSV file including the `URL` column. E.g.:
 
-    File,URL
+    Source,File,URL
     identifier,,https://test.com
 
 > Note in the example above the `File` column is empty. This is because the `update_purls.py` script will generate a new unique file name for you.
